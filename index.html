@@ -24,45 +24,47 @@
         min-height: 400px;
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
   </head>
 
   <body>
     <div id="chart-container"></div>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
     <script>
       // Initialize the chart
-      var chart = echarts.init(
-        document.getElementById("chart-container"),
-        null,
-        {
-          renderer: "svg",
-        }
-      );
-
-      // Set chart options
-      var option = {
-        title: {
-          text: "Basic Chart",
-        },
-        tooltip: {},
-        xAxis: {
-          data: ["A", "B", "C", "D"],
-        },
-        yAxis: {},
-        series: [
+      document.addEventListener("DOMContentLoaded", function () {
+        var chart = echarts.init(
+          document.getElementById("chart-container"),
+          null,
           {
-            type: "bar",
-            data: [5, 20, 36, 10],
+            renderer: "svg",
+          }
+        );
+
+        // Set chart options
+        var option = {
+          title: {
+            text: "Basic Chart",
           },
-        ],
-      };
+          tooltip: {},
+          xAxis: {
+            data: ["A", "B", "C", "D"],
+          },
+          yAxis: {},
+          series: [
+            {
+              type: "bar",
+              data: [5, 20, 36, 10],
+            },
+          ],
+        };
 
-      // Render the chart
-      chart.setOption(option);
+        // Render the chart
+        chart.setOption(option);
 
-      // Resize chart on window resize
-      window.addEventListener("resize", function () {
-        chart.resize();
+        // Resize chart on window resize
+        window.addEventListener("resize", function () {
+          chart.resize();
+        });
       });
     </script>
   </body>
