@@ -3,10 +3,41 @@
   <head>
     <title>Apache ECharts Basic Example</title>
     <meta charset="UTF-8" />
+    <style>
+      #chart-container {
+        width: 600px; /* Set width */
+        height: 400px; /* Set height */
+      }
+    </style>
   </head>
 
   <body>
     <div id="chart-container"></div>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script>
+      // Initialize the chart
+      var chart = echarts.init(document.getElementById("chart-container"));
+
+      // Set chart options
+      var option = {
+        title: {
+          text: "Basic Chart",
+        },
+        tooltip: {},
+        xAxis: {
+          data: ["A", "B", "C", "D"],
+        },
+        yAxis: {},
+        series: [
+          {
+            type: "bar",
+            data: [5, 20, 36, 10],
+          },
+        ],
+      };
+
+      // Render the chart
+      chart.setOption(option);
+    </script>
   </body>
 </html>
